@@ -25,7 +25,7 @@ import './style.scss';
  * @param cardType  卡片类型
  * @param getPluginList  获取插件列表
  * @param pluginId  插件ID
- * @param cardStatus  卡片状态
+ * @param pluginRoot  是否为父插件
  * @param readOnly  是否只读
  * @constructor
  */
