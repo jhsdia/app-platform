@@ -942,5 +942,6 @@
   "heatMap": "热力图",
   "appChatStyle": "应用界面配置",
   "appChatStyleCannotBeEmpty": "应用界面配置不能为空",
-  "deletePluginTips": "删除后无法恢复，会导致正在运行的应用不可用，是否确定删除"
+  "deletePluginTips": "删除后无法恢复，会导致正在运行的应用不可用，是否确定删除",
+  "copyApp": "应用复制"
 }
