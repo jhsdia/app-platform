@@ -29,7 +29,7 @@ import './style.scss';
  * @param readOnly  是否只读
  * @constructor
  */
-const PluginCard = ({ pluginData, cardType, getPluginList, pluginId, cardStatus, readOnly }: any) => {
+const PluginCard = ({ pluginData, cardType, getPluginList, pluginId, pluginRoot, readOnly }: any) => {
   const { t } = useTranslation();
   const [isShow, setIsShow] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
@@ -45,9 +45,7 @@ const PluginCard = ({ pluginData, cardType, getPluginList, pluginId, cardStatus,
   ]
   // 插件点击详情
   const pluginCardClick = () => {
-    pluginData?.pluginToolDataList === null
-      ? navigate(`/plugin/detail/${pluginId}`)
-      : setIsShow(true);
+    pluginRoot ? navigate(`/plugin/detail/${pluginId}`) : setIsShow(true);
   };
   
   const confirm = () => {
@@ -66,7 +64,7 @@ const PluginCard = ({ pluginData, cardType, getPluginList, pluginId, cardStatus,
 
   const setPluginName = () => {
     let name = '';
-    name = pluginData?.pluginToolDataList === null ? pluginData.pluginName : pluginData?.name;
+    name = pluginRoot ? pluginData.pluginName : pluginData?.name;
     return name;
   }
   
@@ -93,9 +91,7 @@ const PluginCard = ({ pluginData, cardType, getPluginList, pluginId, cardStatus,
           </div>
         </div>
         <div className='card-content'>
-          {pluginData?.pluginToolDataList === null
-            ? pluginData.extension.description
-            : pluginData?.description}
+          {pluginRoot ? pluginData.extension.description : pluginData?.description}
         </div>
         {/* 卡片底部 */}
         <div className='card-footer' style={{ position: 'relative' }}>
@@ -122,7 +118,7 @@ const PluginCard = ({ pluginData, cardType, getPluginList, pluginId, cardStatus,
               </span>
             </div>
           </div>
-          { !readOnly && !(pluginData?.pluginToolDataList !== null || pluginData?.isBuiltin) && 
+          { !readOnly && !(!pluginRoot || pluginData?.isBuiltin) && 
             <div className='footer-icon' onClick={(e) => {e.stopPropagation()}}>
               <Dropdown menu={{ items }} trigger={['click']}>
                 <EllipsisOutlined className='footer-more' />

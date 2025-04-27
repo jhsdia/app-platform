@@ -193,6 +193,7 @@ const MarketItems = ({ reload, readOnly }) => {
                     cardType={PluginCardTypeE.MARKET}
                     pluginId={card.pluginId}
                     readOnly={readOnly}
+                    pluginRoot={true}
                   />
               ))}
             </div>
