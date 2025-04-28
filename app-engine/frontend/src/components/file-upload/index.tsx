@@ -13,7 +13,7 @@ import { uploadChatFile } from '@/shared/http/aipp';
 import { convertImgPath } from '@/common/util';
 import { TENANT_ID } from '@/pages/chatPreview/components/send-editor/common/config';
 import serviceConfig from '@/shared/http/httpConfig';
-import UploadImg from '@/assets/images/ai/upload2.png';
+import UploadNormalImg from '@/assets/images/ai/upload2.png';
 import UploadOtherImg from '@/assets/images/ai/upload3.png';
 import './index.scoped.scss';
 
@@ -92,7 +92,7 @@ const UploadImg = ({ appId = '', icon = '', uploadSuccess }) => {
           </div>
          
         ) : (
-          <img src={UploadImg} alt='' />
+          <img src={UploadNormalImg} alt='' />
         )}
       </span>
     </Upload>
