@@ -943,5 +943,6 @@
   "inspirationPermissionTips": "Authentication is performed through the inspiration encyclopedia category tree. After the category tree is turned on, a new dialogue will be created when switching.",
   "retrievalIndexType": "Search Mode",
   "formItemNameRule": "Can only contain letters, numbers, or underscores, and must start with a letter or underscore",
-  "copyApp": "Applicaton Replication"
+  "copyApp": "Applicaton Replication",
+  "copyAppFailed": "Applicaton Replication Failed"
 }

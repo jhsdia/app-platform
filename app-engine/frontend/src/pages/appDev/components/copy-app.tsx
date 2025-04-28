@@ -33,7 +33,7 @@ const CopyApp = ({ copyRef }) => {
 
   useImperativeHandle(copyRef, () => {
     return {
-      openUpload: (appInfo) => dataInit(appInfo),
+      openModal: (appInfo) => dataInit(appInfo),
     };
   });
   
@@ -71,6 +71,8 @@ const CopyApp = ({ copyRef }) => {
         setOpen(false);
         Message({ type: 'success', content: t('operationSucceeded') });
         navigate(`/app-develop/${TENANT_ID}/app-detail/${data.id}/${data.aippId}`);
+      } else {
+        Message({ type: 'success', content: res.msg || t('copyAppFailed') });
       }
     } finally {
       setLoading(false);
@@ -88,7 +90,7 @@ const CopyApp = ({ copyRef }) => {
       okButtonProps={{ loading }}
       okText={t('ok')}
       cancelText={t('cancel')}
-      destroyOnClose
+      forceRender
       maskClosable={false}
       className='upload-app'
     >
