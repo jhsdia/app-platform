@@ -169,7 +169,7 @@ const EditModal = (props) => {
           agentInfo.current = res.data;
         } else {
           setLoading(false);
-          Message({ type: 'error', content: res.mag || t('createdFailed') });
+          Message({ type: 'error', content: res.msg || t('createdFailed') });
           return;
         }
       }
