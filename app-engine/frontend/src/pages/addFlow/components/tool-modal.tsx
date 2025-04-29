@@ -105,8 +105,7 @@ const ToolDrawer = (props) => {
       params.includeTags = selectedSourceTab;
     }
     setLoading(true);
-    getPlugins(params, extrasParams);
-      .then(({ data, total }) => {
+    getPlugins(params, extrasParams).then(({ data, total }) => {
         setTotal(total);
         setPluginData(data || []);
         setDefaultCheck(data);
