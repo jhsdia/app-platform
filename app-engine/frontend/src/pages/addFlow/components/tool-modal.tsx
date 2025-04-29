@@ -91,6 +91,7 @@ const ToolDrawer = (props) => {
 
   // 获取插件列表
   const getPluginList = async () => {
+    let extrasParams = '';
     let params: any = {
       name: searchName?.current,
       pageNum: pageNum,
@@ -99,11 +100,12 @@ const ToolDrawer = (props) => {
     };
     if (selectedSourceTab === 'APP') {
       params.excludeTags = selectedSourceTab;
+      extrasParams = 'excludeTags=BASIC';
     } else {
       params.includeTags = selectedSourceTab;
     }
     setLoading(true);
-    getPlugins(params)
+    getPlugins(params, extrasParams);
       .then(({ data, total }) => {
         setTotal(total);
         setPluginData(data || []);
