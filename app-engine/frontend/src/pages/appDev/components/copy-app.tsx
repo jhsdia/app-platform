@@ -60,7 +60,7 @@ const CopyApp = ({ copyRef }) => {
         description: attributes.description,
         icon: filePath,
         app_type: attributes.app_type,
-        app_build_type: appBuiltType,
+        app_built_type: appBuiltType,
         type,
         id,
         app_category: appCategory
@@ -72,7 +72,7 @@ const CopyApp = ({ copyRef }) => {
         Message({ type: 'success', content: t('operationSucceeded') });
         navigate(`/app-develop/${TENANT_ID}/app-detail/${data.id}/${data.aippId}`);
       } else {
-        Message({ type: 'success', content: res.msg || t('copyAppFailed') });
+        Message({ type: 'error', content: res.msg || t('copyAppFailed') });
       }
     } finally {
       setLoading(false);
